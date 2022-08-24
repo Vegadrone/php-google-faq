@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- MY STYLE -->
-    <link rel="stylesheet" href="./styles/style.css">
     <!-- BOOTSTRAP IMPORT v5.2 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-
+    <!-- MY STYLE -->
+    <link rel="stylesheet" href="./styles/style.css">
     <title>Domande frequenti - Privacy e termini - Google</title>
 
 </head>
@@ -52,9 +51,9 @@
                             <li>La versione dei termini che regola il nostro rapporto, che può variare in base alle leggi locali.</li>
                         </ol>
 
-                        Tieni presente che i servizi Google sono fondamentalmente gli stessi a prescindere dalla società consociata che li offre o dal paese a cui è associato il tuo account.
+                        Tieni presente che i servizi Google sono fondamentalmente gli stessi a prescindere dalla società consociata che li offre o dal paese a cui è associato il tuo account.<br>
                         
-                        <h2>Stabilire il paese associato al tuo account</h2>
+                        <h5>Stabilire il paese associato al tuo account</h5>
                         <p>Quando crei un nuovo Account Google, lo associamo a un paese in base a dove è stato creato. Per quanto riguarda gli account creati almeno un anno fa, usiamo il paese da cui accedi solitamente ai servizi Google, in genere i servizi in cui hai trascorso più tempo nell'ultimo anno.
 
                             I viaggi frequenti solitamente non influiscono sul paese associato al tuo account. Se ti trasferisci in un altro paese, potrebbe occorrere circa un anno per aggiornare l'associazione del paese.
@@ -85,6 +84,34 @@
         'Tecnologie',
         'Domande frequenti',
     ];
+
+    $footerMenuVoices = [
+        'Google',
+        'Tutto su Google',
+        'Privacy',
+        'Termini',
+    ];
+
+    $languages = [
+        'Italiano',
+        'Portuguese',
+        'Canadian',
+        'French',
+        'English',
+        'Spanish',
+        'Dutch',
+        'German',
+        'Greek',
+        'Italiano',
+        'Norwegian',
+        'Portuguese',
+        'Swedish',
+        'Bulgarian',
+        'Croatian',
+        'Czech',
+        'Russian',
+        'Brazilian',
+    ];
     ?>
     <header>
         <h2>Privacy e termini</h2>
@@ -92,7 +119,11 @@
         <nav>
             <!-- Create a data structure and use it to populates the menu dynamically -->
             <ul>
-                <li>Introduzione</li>
+                <?php for ($i = 0; $i < count($menuVoices); $i++) { ?>
+                    <li>
+                        <?php echo $menuVoices[$i] ?>
+                    </li>
+                <?php } ?>
             </ul>
         </nav>
 
@@ -101,42 +132,45 @@
     </header>
 
     <main>
-        <!-- Create a data structure and use it to populates the main dynamically -->
 
-        <?php
-        foreach ($questionsAndAnswers as $questionAndAnswer) { ?>
-            <h1>
-                <?php echo $questionAndAnswer['question']; ?>
-            </h1>
-            <p>
-                <?php echo $questionAndAnswer['answer']; ?>
-            </p>
-        <?php  } ?>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <?php foreach ($questionsAndAnswers as $questionAndAnswer) { ?>
+                        <h4 class="fw-semibold">
+                            <?php echo $questionAndAnswer['question']; ?>
+                        </h4>
+                        <p>
+                            <?php echo $questionAndAnswer['answer']; ?>
+                        </p>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
 
-
-        <p>testo della domanda</p>
     </main>
 
     <footer>
-        <!-- Create a data structure and use it to populates the menu dynamically -->
-        <ul>
-            <li>Google</li>
-            <li>Tutto su Google</li>
-            <li>Privacy</li>
-            <li>Termini</li>
-        </ul>
-        <select name="language" id="">
-            <option value="Italian">Italiano</option>
-            <option value="Italian">Italiano</option>
-            <option value="Italian">Italiano</option>
-            <option value="Italian">Italiano</option>
-            <option value="Italian">Italiano</option>
-            <option value="Italian">Italiano</option>
-            <option value="Italian">Italiano</option>
-            <option value="Italian">Italiano</option>
-            <option value="Italian">Italiano</option>
-            <option value="Italian">Italiano</option>
-        </select>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-between">
+                    <ul>
+                        <?php for ($i = 0; $i < count($footerMenuVoices); $i++) { ?>
+                            <li>
+                                <?php echo $footerMenuVoices[$i]; ?>
+                            </li>
+                        <?php } ?>
+                    </ul>
+                    <select name="language" id="">
+                        <?php for ($i = 0; $i < count($languages); $i++) { ?>
+                            <option value="languageOfChoice"><?php echo $languages[$i]; ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
     </footer>
 </body>
 
