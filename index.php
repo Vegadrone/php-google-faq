@@ -77,6 +77,14 @@
         ],
 
     ];
+
+    $menuVoices = [
+        'Introduzione',
+        'Norme sulla privacy',
+        'Termini di servizio',
+        'Tecnologie',
+        'Domande frequenti',
+    ];
     ?>
     <header>
         <h2>Privacy e termini</h2>
@@ -85,10 +93,6 @@
             <!-- Create a data structure and use it to populates the menu dynamically -->
             <ul>
                 <li>Introduzione</li>
-                <li>Norme sulla privacy</li>
-                <li>Termini di servizio</li>
-                <li>Tecnologie</li>
-                <li>Domande frequenti</li>
             </ul>
         </nav>
 
@@ -97,7 +101,19 @@
     </header>
 
     <main>
-        <h1>Domanda</h1>
+        <!-- Create a data structure and use it to populates the main dynamically -->
+
+        <?php
+        foreach ($questionsAndAnswers as $questionAndAnswer) { ?>
+            <h1>
+                <?php echo $questionAndAnswer['question']; ?>
+            </h1>
+            <p>
+                <?php echo $questionAndAnswer['answer']; ?>
+            </p>
+        <?php  } ?>
+
+
         <p>testo della domanda</p>
     </main>
 
