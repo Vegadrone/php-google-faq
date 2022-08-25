@@ -113,22 +113,25 @@
         'Brazilian',
     ];
     ?>
-    <header>
-        <h2>Privacy e termini</h2>
+
+    <header class="p-2">
+        <div class="my-container d-flex px-4">
+            <img class="mx-2" src="https://1000marche.net/wp-content/uploads/2020/03/Google-logo.png" alt="logo.png">
+            <h3 class="my-1">Privacy e termini</h3>
+        </div>
 
         <nav>
             <!-- Create a data structure and use it to populates the menu dynamically -->
-            <ul>
-                <?php for ($i = 0; $i < count($menuVoices); $i++) { ?>
-                    <li>
-                        <?php echo $menuVoices[$i] ?>
-                    </li>
-                <?php } ?>
-            </ul>
+            <div class="my-container">
+                <ul class="d-flex">
+                    <?php for ($i = 0; $i < count($menuVoices); $i++) { ?>
+                        <li class="mx-3 fw-semibold">
+                            <?php echo $menuVoices[$i] ?>
+                        </li>
+                    <?php } ?>
+                </ul>
+            </div>
         </nav>
-
-        <hr>
-
     </header>
 
     <main>
@@ -155,9 +158,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 d-flex justify-content-between">
-                    <ul>
+                    <ul class="d-flex">
                         <?php for ($i = 0; $i < count($footerMenuVoices); $i++) { ?>
-                            <li>
+                            <li class="mx-2">
                                 <?php echo $footerMenuVoices[$i]; ?>
                             </li>
                         <?php } ?>
@@ -170,7 +173,7 @@
                 </div>
             </div>
         </div>
-        
+
     </footer>
 </body>
 
